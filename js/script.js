@@ -15,6 +15,7 @@
 //         })
 //     })
 // })
+
 function onEntry(entry) {
     entry.forEach(change => {
         if (change.isIntersecting) {
@@ -30,5 +31,16 @@ for (let elm of elements) {
     observer.observe(elm);
 }
 
+$(document).ready(function () {
+    $('[data-modal=order]').on('click', function () {
+        $('.overlay, #order').fadeIn(300);
+    });
 
-//gsap.from(".circle__cases", { duration: 1, y: '-=1000', ease: Expo.easeOut });
+    $('[data-modal=question]').on('click', function () {
+        $('.overlay, #question').fadeIn(300);
+    });
+
+    $('.modal-window__close').on('click', function () {
+        $('.overlay, #order, #thanks, #question').fadeOut(300);
+    });
+});
